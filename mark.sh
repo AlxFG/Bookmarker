@@ -1,2 +1,2 @@
 #!/bin/bash
-buku --np -t;read tag ; buku --nc -t $tag -f 5 | fzf | number | buku -o
+buku --np -t | head -n -1 | fzf | dots | buku --nc -t -f 5 | grep -v 'waiting for input' > /tmp/book; buku -o $(cat /tmp/book | fzf | number)
