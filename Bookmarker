@@ -1,6 +1,6 @@
 #!/bin/sh
 
-INDEX=$(buku --np -t | head -n -1 | sed 's/^\s*//g' | fzf --reverse | sed 's/[0-9]\. \(.*\) .*/\1/')
+INDEX=$(buku --np -t | head -n -1 | sed 's/^\s*//g' | fzf --reverse | sed 's/[0-9]*\. \(.*\) .*/\1/')
 if [ "$INDEX" ]; then
 	OUT=$(buku --nc -f 5 -t "$INDEX")
 	INDEX=$(printf "%s" "$OUT" | fzf --reverse | sed 's/\t.*//')
